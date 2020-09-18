@@ -47,7 +47,7 @@ function App() {
 
   
   const postNewPerson = newPerson => {
-    axios.post('https://reqres.in/api/users')
+    axios.post('https://reqres.in/api/users', newPerson)
     .then(res=>{
       setPeople([...people, {id: res.data.id,...newPerson}])
       setFormValues(initialFormValues);
@@ -115,6 +115,7 @@ function App() {
     <div>
       <H1>Users List/Info</H1>
       {people.map(person=>{
+        console.log(person);
         return (
           <Pre>{JSON.stringify(person, null, 4)}</Pre>
         )

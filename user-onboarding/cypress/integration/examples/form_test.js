@@ -38,6 +38,13 @@ describe('User Onboarding Project Page', () => {
         checkboxInput().should('not.have.value', 'false')
 
     })
+    
+    it('checking for validation', () => {
+        passwordInput()
+        .type('ccccccc')
+        cy.contains('Password must be at least 8 characters long').should('exist')
+        passwordInput().clear();
+    });
 
 })
 
